@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <title>Eye</title>
     <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="ico" href="img/ico.ico">
 </head>
 <body>
-    test text
+    <nav>
+        <ul>
+            <li><a href="#">Профили</a></li>
+            <li><a href="#">Посещаемость</a></li>
+            <li><a href="#">Помощь</a></li>
+            <li><a href="#" onclick="closeWindow()"; return false;>Выход</a></li>
+            <script>
+                function closeWindow(){
+	                if (confirm('Вы действительно хотите закрыть страницу?')) {
+		            window.close();
+	                }
+                }
+            </script>
+        </ul>
+    </nav>
 </body>
 </html>
