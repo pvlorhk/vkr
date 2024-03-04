@@ -1,3 +1,3 @@
 import eel
-eel.init('html')
+eel.init('web')
 eel.start('main.html')
