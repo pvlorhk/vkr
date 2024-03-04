@@ -4,7 +4,7 @@ import cv2
 import os
 from datetime import datetime
 
-path = 'knownfaces'
+path = 'KnownFaces'
 images = []
 classNames = []
 myList = os.listdir(path)
