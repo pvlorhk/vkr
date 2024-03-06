@@ -1,4 +1,5 @@
+import os
 import webbrowser
-# Пример просмотра файла.
-path = "C:/edu/vkr/knownfaces"
-webbrowser.open(path) # Opens 'PycharmProjects' folder.
+#Пример просмотра папки
+path = (os.getcwd()+'/knownfaces')
+webbrowser.open(path)
