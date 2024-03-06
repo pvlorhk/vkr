@@ -1,5 +1,6 @@
 import os
 import webbrowser
-#Пример просмотра папки
+#os.getdwd - позволяет получить путь к текущей папке
+#+'/knownfaces - добаляет к текущей пути папку knownfaces
 path = (os.getcwd()+'/knownfaces')
 webbrowser.open(path)
