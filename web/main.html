@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Eye</title>
-    <script type="text/javascript" src="/eel.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="ico" href="img/ico.ico">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript">
+        <!-- Функция закрытия окна приложения -->
+        function closeWindow() {
+	        if (confirm('Вы действительно хотите закрыть программу?')) {
+	        window.close();
+            }                
+        }
+        $(function(){
+                    $("#btn").click(function(){
+                        eel.view_profile();
+                    });
+        }); 
+     </script>
 </head>
 <body>
     <nav class="menu">
@@ -15,7 +29,7 @@
                 <ul>
                     <li><a href="#">Добавить профиль</a></li>
                     <li><a href="#">Удалить профиль</a></li>
-                    <li><a href="#">Просмотреть профили</a></li>
+                    <li><input type='button' id='btn' class='btn btn-primary' value='Submit'></li>
                 </ul>
             </li>
             <li>
@@ -32,14 +46,6 @@
                 </ul>
             </li>
             <li><a href="#" onclick="closeWindow()"; return false>Выход</a></li>
-            <script>
-                <!-- Функция закрытия окна приложения -->
-                function closeWindow(){
-	                if (confirm('Вы действительно хотите закрыть программу?')) {
-		            window.close();
-	                }
-                }
-            </script>
         </ul>
     </nav>
 </body>
