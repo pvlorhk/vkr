@@ -32,16 +32,17 @@
                     <li><a href="#">Об авторе</a></li>
                 </ul>
             </li>
-            <li><a href="#" onclick="closeWindow()"; return false>Выход</a></li>
+            <li><a href="#" id="closeLink">Закрыть программу</a></li>
         </ul>
     </nav>
     <script type="text/javascript">
         <!-- Функция закрытия окна приложения -->
-        function closeWindow() {
-	        if (confirm('Вы действительно хотите закрыть программу?')) {
-	        window.close();
-            }                
-        }
+        document.getElementById("closeLink").addEventListener("click", function(event){
+            event.preventDefault(); // Предотвращаем переход по ссылке
+            if (confirm('Вы действительно хотите закрыть программу?')){
+	            window.close();
+            }
+        });
         $(function(){
                     $("#view").click(function(){
                         eel.view_profile();
