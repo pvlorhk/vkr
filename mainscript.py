@@ -1,5 +1,4 @@
 import os
-import webbrowser
 import eel
 
 eel.init('web')
@@ -10,5 +9,5 @@ def view_profile():
     #+'/knownfaces - добаляет к текущей пути папку knownfaces
     path = (os.getcwd()+'/knownfaces')
     #webbrowser.open(path) - открывает папку knownfaces с профилями
-    webbrowser.open(path)
+    os.system("start "+path)
 eel.start('main.html')
