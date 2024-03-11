@@ -22,7 +22,7 @@
             <li>
                 <a href="#">Посещаемость</a>
                 <ul>
-                    <li><a href="#">Просмотреть посещаемость</a></li>
+                    <li><a href="#" id="atten">Просмотреть посещаемость</a></li>
                 </ul>
             </li>
             <li>
@@ -39,14 +39,17 @@
         <!-- Функция закрытия окна приложения -->
         document.getElementById("closeLink").addEventListener("click", function(event){
             event.preventDefault(); // Предотвращаем переход по ссылке
-            if (confirm('Вы действительно хотите закрыть программу?')){
-	            window.close();
-            }
+	        window.close();
         });
         $(function(){
-                    $("#view").click(function(){
-                        eel.view_profile();
-                    });
+            $("#atten").click(function(){
+                eel.view_atten();
+            });
+        });
+        $(function(){
+            $("#view").click(function(){
+                eel.view_profile();
+            });
         }); 
      </script>
 </body>
