@@ -39,7 +39,9 @@
         <!-- Функция закрытия окна приложения -->
         document.getElementById("closeLink").addEventListener("click", function(event){
             event.preventDefault(); // Предотвращаем переход по ссылке
-	        window.close();
+            if (confirm("Вы действительно хотите закрыть программу?")) {
+                window.close();        
+            }
         });
         $(function(){
             $("#atten").click(function(){
