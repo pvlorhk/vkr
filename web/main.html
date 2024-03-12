@@ -12,22 +12,22 @@
     <nav class="menu">
         <ul>
             <li>
-                <a href="#">Профили</a>
+                <a href="#">Сотрудники</a>
                 <ul>
-                    <li><a href="#">Добавить профиль</a></li>
-                    <li><a href="#">Удалить профиль</a></li>
-                    <li><a href="#" id="view">Просмотреть профиль</a></li>
+                    <li><a href="#">Добавить сотрудника</a></li>
+                    <li><a href="#">Удалить сотрудника</a></li>
+                    <li><a href="#" id="view">Просмотр сотрудников</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Посещаемость</a>
                 <ul>
-                    <li><a href="#" id="atten">Просмотреть посещаемость</a></li>
+                    <li><a href="#" id="atten">Просмотр посещаемости сотрудников</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">Помощь</a>
-                <ul>
+                <ul>z
                     <li><a href="#">Справка</a></li>
                     <li><a href="#">Об авторе</a></li>
                 </ul>
@@ -38,7 +38,7 @@
     <script type="text/javascript">
         <!-- Функция закрытия окна приложения -->
         document.getElementById("closeLink").addEventListener("click", function(event){
-            event.preventDefault(); // Предотвращаем переход по ссылке
+            event.preventDefault();
             if (confirm("Вы действительно хотите закрыть программу?")) {
                 window.close();        
             }
