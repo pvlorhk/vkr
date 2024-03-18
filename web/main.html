@@ -32,17 +32,9 @@
                     <li><a href="#">Об авторе</a></li>
                 </ul>
             </li>
-            <li><a href="#" id="closeLink">Закрыть программу</a></li>
         </ul>
     </nav>
     <script type="text/javascript">
-        <!-- Функция закрытия окна приложения -->
-        document.getElementById("closeLink").addEventListener("click", function(event){
-            event.preventDefault();
-            if (confirm("Вы действительно хотите закрыть программу?")) {
-                window.close();        
-            }
-        });
         $(function(){
             $("#atten").click(function(){
                 eel.view_atten();
