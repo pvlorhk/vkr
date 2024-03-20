@@ -1,0 +1,28 @@
+body {
+  background-image: url('../img/fonzemlya.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul table{
+  border-spacing: 17px 50px;
+}
+nav ul li {
+  display: inline-block;
+  border-radius: 5px;
+}
+nav ul li a {
+  color: #000000;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #b1c4c8;
+  border-radius:2 px;
+}
+nav ul li a:hover {
+  background-color: #9baeb1;
+  color: #440740;
+}

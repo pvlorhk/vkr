@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eye</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="ico" href="img/ico.ico">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li>
+                <a href="#">Сотрудники</a>
+                <ul>
+                    <li><a href="#">Добавить сотрудника</a></li>
+                    <li><a href="#">Удалить сотрудника</a></li>
+                    <li><a href="#" id="view">Просмотр сотрудников</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Посещаемость</a>
+                <ul>
+                    <li><a href="#" id="atten">Просмотреть посещаемость сотрудников</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Помощь</a>
+                <ul>
+                    <li><a href="#">Справка</a></li>
+                    <li><a href="#">Об авторе</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <script type="text/javascript">
+        $(function(){
+            $("#atten").click(function(){
+                eel.view_atten();
+            });
+        });
+        $(function(){
+            $("#view").click(function(){
+                eel.view_profile();
+            });
+        }); 
+     </script>
+</body>
+</html>
