@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eye</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="ico" href="img/ico.ico">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+    <nav class="menu" align="center">
+        <ul>
+            <table align="center">
+                <tr><img src="img/eyeee.svg" width="200" height="200" alt="eye">
+                </tr>
+                <tr>
+                   <td>
+                        <li><a href="#" id="camera">Включить камеру</a></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li><a href="#" id="add">Добавить сотрудника</a></li>
+                        <li><a href="#" id="view">Просмотр сотрудников</a></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li><a href="#" id="atten">Просмотреть посещаемость сотрудников</a></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li><a href="#">Справка</a></li>
+                        <li><a href="#">Об авторе</a></li>
+                    </td>
+                </tr>
+            </table>
+        </ul>
+    </nav>
+    <div id="butn" style="display: none;">
+        <input type='text' id='inp' placeholder='Введите имя'>
+        <input type='button' id='btn' class='btn btn-primary' value='Сделать фото'>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $("#atten").click(function(){
+                eel.view_atten();
+            });
+        });
+        $(function(){
+            $("#view").click(function(){
+                eel.view_profile();
+            });
+        });
+        $(function(){
+            $("#camera").click(function(){
+                eel.camera();
+            });
+        }); 
+        $(function(){
+            $("#btn").click(function(){
+                eel.handleinput($("#inp").val());
+                $('#inp').val('');
+                $('#butn').hide();
+            });
+        });
+        document.getElementById('add').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('butn').style.display = 'block';
+        });
+     </script>
+    
+</body>
+</html>
