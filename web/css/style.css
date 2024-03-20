@@ -1,40 +1,31 @@
-.menu ul li{
-    padding: 10px;
-  }
-  .menu ul > li:hover{
-    background-color: #f96;
-  }
-  .menu ul ul > li:hover{
-    background-color: #69e;
-  }
-  .menu ul li, .menu ul{
-    display: inline-block;
-  }
-  .menu ul{
-    position: relative;
+body {
+  background-image: url('../img/fonzemlya.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  nav ul {
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #f63;
   }
-  .menu ul ul{
-    display: none;
-    position: absolute;
-    background-color: #369;
-    margin-top: 10px;
-    margin-left: -10px;
+  nav ul table{
+    border-spacing: 17px 50px;
   }
-  .menu ul a{
-    color: #fff;
-    text-decoration: none;
-  }
-  .menu ul ul a{
-    color: #fff;
-    text-decoration: none;
-  }
-  .menu li:hover ul{
-    display: block;
+  nav ul li {
+    display: inline-block;
+    border-radius: 5px;
   }
   
-  .menu li:hover li{
-    display: block;
+  nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #b1c4c8;
+    border-radius:2 px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #9baeb1;
+    color: #440740;
   }
