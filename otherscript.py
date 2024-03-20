@@ -5,7 +5,6 @@ import face_recognition
 import cv2
 from datetime import datetime
 import re
-import sys
 
 eel.init('web')
 
@@ -21,7 +20,6 @@ def camera():
         curImg = cv2.imread(f'{path}/{cls}')
         images.append(curImg)
         classNames.append(os.path.splitext(cls)[0])
-
     print(classNames)
 
     def findEncodings(images):
@@ -48,7 +46,6 @@ def camera():
     print("Декодирование закончено")
 
     cap = cv2.VideoCapture(0)
-
     while True:
         success, img = cap.read()
         imgS = cv2.resize(img, (0, 0), None, 0.25, 0.25)
@@ -60,19 +57,16 @@ def camera():
         for encodeFace, faceLoc in zip(encodeCurFrame, facesCurFrame):
             matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
             faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
-            #print(faceDis)
             matchIndex = np.argmin(faceDis)
 
             if matches[matchIndex]:
                 name = classNames[matchIndex]
-                #print(name)
                 y1, x2, y2, x1 = faceLoc
                 y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
                 cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
                 cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (0, 255, 0), cv2.FILLED)
                 cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
                 markAttendance(name)
-
         cv2.imshow("WebCam", img)
         cv2.waitKey(1)
         if cv2.waitKey(1) & 0xFF == 27:
@@ -81,45 +75,27 @@ def camera():
     cv2.destroyAllWindows()
 
 @eel.expose
+def handleinput(name):
+    cap = cv2.VideoCapture(0)
+    save_path = (os.getcwd()+'/knownfaces')
+    ret, frame = cap.read()
+    count = 1
+    if ret:
+        if os.path.exists(os.path.join(save_path, f'{name}.jpg')):
+            name = re.sub('\d+', '', name) + f'{count}'
+            count += 1
+        cv2.imwrite(os.path.join(save_path, f'{name}.jpg'), frame)
+    cap.release()
+    cv2.destroyAllWindows()
+
+@eel.expose
 def view_profile():
-    #os.getdwd - позволяет получить путь к текущей папке
-    #+'/knownfaces - добавляем к текущей пути папку knownfaces
     path = (os.getcwd()+'/knownfaces')
-    #webbrowser.open(path) - открывает папку knownfaces с профилями
     os.system("start "+path)
 
 @eel.expose
 def view_atten():
-    #os.getdwd - позволяет получить путь к текущей папке
-    #+'/knownfaces - добаляем к текущей пути папку knownfaces
     file_path = (os.getcwd()+'/Attendance.csv')
-    #webbrowser.open(path) - открывает папку knownfaces с профилями
     os.system("start "+file_path)
-    
-@eel.expose                         # Expose this function to Javascript
-def handleinput(name):
-    # Откройте веб-камеру
-    cap = cv2.VideoCapture(0)
 
-    # Запросите имя пользователя
-
-    # Создайте путь к папке для сохранения изображений
-
-    save_path = (os.getcwd()+'/knownfaces')
-    # Снимите кадр с веб-камеры
-    ret, frame = cap.read()
-    count = 1
-    # Если кадр не пустой, сделайте снимок
-    if ret:
-        if os.path.exists(os.path.join(save_path, f'{name}.jpg')):
-        # Если файл существует, добавьте номер к имени
-            name = re.sub('\d+', '', name) + f'{count}'
-            count += 1
-    
-        # Сохраните снимок в папку
-        cv2.imwrite(os.path.join(save_path, f'{name}.jpg'), frame)
-
-    # Завершите программу
-    cap.release()
-    cv2.destroyAllWindows()
 eel.start('main1.html')
