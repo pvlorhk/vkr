@@ -20,7 +20,8 @@ nav ul li a {
   text-decoration: none;
   padding: 5px 10px;
   background-color: #b1c4c8;
-  border-radius:2 px;
+  border-radius:3px;
+  font-size: 39px;
 }
 nav ul li a:hover {
   background-color: #9baeb1;

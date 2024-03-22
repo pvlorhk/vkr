@@ -45,16 +45,6 @@
     </div>
     <script type="text/javascript">
         $(function(){
-            $("#atten").click(function(){
-                eel.view_atten();
-            });
-        });
-        $(function(){
-            $("#view").click(function(){
-                eel.view_profile();
-            });
-        });
-        $(function(){
             $("#camera").click(function(){
                 eel.camera();
             });
@@ -66,11 +56,20 @@
                 $('#butn').hide();
             });
         });
+        $(function(){
+            $("#view").click(function(){
+                eel.view_profile();
+            });
+        });
+        $(function(){
+            $("#atten").click(function(){
+                eel.view_atten();
+            });
+        });
         document.getElementById('add').addEventListener('click', function(event) {
             event.preventDefault();
             document.getElementById('butn').style.display = 'block';
         });
      </script>
-    
 </body>
 </html>
