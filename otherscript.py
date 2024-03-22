@@ -5,8 +5,9 @@ import face_recognition
 import cv2
 from datetime import datetime
 import re
-
+# сборка в .exe: python -m eel .\otherscript.py .\web\ --onefile --collect-all face_recognition_models --noconsole
 eel.init('web')
+
 
 @eel.expose
 def camera():
@@ -55,8 +56,10 @@ def camera():
         encodeCurFrame = face_recognition.face_encodings(imgS, facesCurFrame)
 
         for encodeFace, faceLoc in zip(encodeCurFrame, facesCurFrame):
-            matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
-            faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
+            matches = face_recognition.compare_faces(
+                encodeListKnown, encodeFace)
+            faceDis = face_recognition.face_distance(
+                encodeListKnown, encodeFace)
             matchIndex = np.argmin(faceDis)
 
             if matches[matchIndex]:
@@ -64,8 +67,10 @@ def camera():
                 y1, x2, y2, x1 = faceLoc
                 y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
                 cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (0, 255, 0), cv2.FILLED)
-                cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+                cv2.rectangle(img, (x1, y2 - 35), (x2, y2),
+                              (0, 255, 0), cv2.FILLED)
+                cv2.putText(img, name, (x1 + 6, y2 - 6),
+                            cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
                 markAttendance(name)
         cv2.imshow("WebCam", img)
         cv2.waitKey(1)
@@ -73,6 +78,7 @@ def camera():
             break
     cap.release()
     cv2.destroyAllWindows()
+
 
 @eel.expose
 def handleinput(name):
@@ -85,17 +91,21 @@ def handleinput(name):
             name = re.sub('\d+', '', name) + f'{count}'
             count += 1
         cv2.imwrite(os.path.join(save_path, f'{name}.jpg'), frame)
+    os.system("start " + save_path + "/" + name + ".jpg")
     cap.release()
     cv2.destroyAllWindows()
+
 
 @eel.expose
 def view_profile():
     path = (os.getcwd()+'/knownfaces')
     os.system("start "+path)
 
+
 @eel.expose
 def view_atten():
     file_path = (os.getcwd()+'/Attendance.csv')
     os.system("start "+file_path)
+
 
 eel.start('main1.html')

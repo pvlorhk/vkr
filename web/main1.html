@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Eye</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="ico" href="img/ico.ico">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="/eel.js"></script>
 </head>
+
 <body>
     <nav class="menu" align="center">
         <ul>
@@ -15,7 +19,7 @@
                 <tr><img src="img/eyeee.svg" width="200" height="200" alt="eye">
                 </tr>
                 <tr>
-                   <td>
+                    <td>
                         <li><a href="#" id="camera">Включить камеру</a></li>
                     </td>
                 </tr>
@@ -44,32 +48,33 @@
         <input type='button' id='btn' class='btn btn-primary' value='Сделать фото'>
     </div>
     <script type="text/javascript">
-        $(function(){
-            $("#camera").click(function(){
+        $(function () {
+            $("#camera").click(function () {
                 eel.camera();
             });
-        }); 
-        $(function(){
-            $("#btn").click(function(){
+        });
+        $(function () {
+            $("#btn").click(function () {
                 eel.handleinput($("#inp").val());
                 $('#inp').val('');
                 $('#butn').hide();
             });
         });
-        $(function(){
-            $("#view").click(function(){
+        $(function () {
+            $("#view").click(function () {
                 eel.view_profile();
             });
         });
-        $(function(){
-            $("#atten").click(function(){
+        $(function () {
+            $("#atten").click(function () {
                 eel.view_atten();
             });
         });
-        document.getElementById('add').addEventListener('click', function(event) {
+        document.getElementById('add').addEventListener('click', function (event) {
             event.preventDefault();
             document.getElementById('butn').style.display = 'block';
         });
-     </script>
+    </script>
 </body>
+
 </html>
