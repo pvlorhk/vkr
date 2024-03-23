@@ -5,7 +5,7 @@ import face_recognition
 import cv2
 from datetime import datetime
 import re
-# сборка в .exe: python -m eel .\otherscript.py .\web\ --onefile --collect-all face_recognition_models --noconsole
+# сборка в .exe: python -m eel .\otherscript.py .\web\ --onefile --collect-all face_recognition_models --noconsole --icon=ico.ico
 eel.init('web')
 
 
