@@ -16,7 +16,6 @@ def camera():
     classNames = []
     myList = os.listdir(path)
     print(myList)
-
     for cls in myList:
         curImg = cv2.imread(f'{path}/{cls}')
         images.append(curImg)
