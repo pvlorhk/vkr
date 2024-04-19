@@ -36,8 +36,18 @@
                 </tr>
                 <tr>
                     <td>
-                        <li><a href="#">Справка</a></li>
-                        <li><a href="#">Об авторе</a></li>
+                        <!-- Модальное окно Об авторе -->
+                        <li><a href="#" onclick="window.closeMe1.showModal()">Об авторе</a></li>
+                        <dialog id="closeMe1" aria-labelledby="heading" class="input">
+                            <h2 id="heading">Об авторе</h2>
+                            <p class="fontsize">
+                                Программа была разработана студентами ТувГУ
+                            </p>
+
+                            <button type="button" onclick="window.closeMe1.close()" class="fontsize">
+                                Закрыть
+                            </button>
+                        </dialog>
                     </td>
                 </tr>
             </table>
